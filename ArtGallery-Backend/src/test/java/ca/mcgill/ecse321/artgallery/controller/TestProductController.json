@@ -1,0 +1,593 @@
+{
+	"info": {
+		"_postman_id": "f61306ce-ff48-481f-a3b3-98221a4bf0ed",
+		"name": "ProductAPI",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/create-seller?name=someone&email=some@mail&password=123&profile=GOAT",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "2c9a6d6d-a042-4bac-8992-59ac119011e6",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "seller_data",
+						"value": "",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/create-seller?name=someone&email=some@mail&password=123&profile=GOAT",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-seller"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "someone"
+						},
+						{
+							"key": "email",
+							"value": "some@mail"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						},
+						{
+							"key": "profile",
+							"value": "GOAT"
+						}
+					]
+				},
+				"description": "creat seller successfully"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/login?seller=some@mail&password=123",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/login?seller=some@mail&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "seller",
+							"value": "some@mail"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						}
+					]
+				},
+				"description": "login the account"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing&seller=some@mail&price=100&picture=www.cloud.com",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "42c9a1ff-83ac-4536-8c60-3f8da6bc26f9",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing&seller=some@mail&price=100&picture=www.cloud.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-product"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Selling"
+						},
+						{
+							"key": "delivery",
+							"value": "Both"
+						},
+						{
+							"key": "name",
+							"value": "drawing"
+						},
+						{
+							"key": "seller",
+							"value": "some@mail"
+						},
+						{
+							"key": "price",
+							"value": "100"
+						},
+						{
+							"key": "picture",
+							"value": "www.cloud.com"
+						}
+					]
+				},
+				"description": "Create product successfully"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/delete-product?id=100",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "cd9666d1-4bad-4506-8e1a-784ef04a3da6",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(500);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/delete-product?id=100",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete-product"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "100"
+						}
+					]
+				},
+				"description": "delete product (failure) case"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/delete-product?id=1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "aa01d32b-290e-4fd7-a82a-0281985e8e36",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/delete-product?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete-product"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "delete product (successful)"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing&seller=some@mail&price=100&picture=cloud.com",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "edd5c7d5-254e-4e03-9e7c-3fff1663e0b3",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing&seller=some@mail&price=100&picture=cloud.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-product"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Selling"
+						},
+						{
+							"key": "delivery",
+							"value": "Both"
+						},
+						{
+							"key": "name",
+							"value": "drawing"
+						},
+						{
+							"key": "seller",
+							"value": "some@mail"
+						},
+						{
+							"key": "price",
+							"value": "100"
+						},
+						{
+							"key": "picture",
+							"value": "cloud.com"
+						}
+					]
+				},
+				"description": "create product second time for change parameter"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/change-product-price?seller=some@mail&product-id=2&new-price=233",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ed6619d7-2445-4bba-886f-748a8c16ec8e",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/change-product-price?seller=some@mail&product-id=2&new-price=233",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-product-price"
+					],
+					"query": [
+						{
+							"key": "seller",
+							"value": "some@mail"
+						},
+						{
+							"key": "product-id",
+							"value": "2"
+						},
+						{
+							"key": "new-price",
+							"value": "233"
+						}
+					]
+				},
+				"description": "change price (successfully)"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/change-product-status?seller=some@mail&product-id=2&new-status=DisplayOnly",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e7d46af1-a397-4add-85a3-dffc1a9ec03a",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/change-product-status?seller=some@mail&product-id=2&new-status=DisplayOnly",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-product-status"
+					],
+					"query": [
+						{
+							"key": "seller",
+							"value": "some@mail"
+						},
+						{
+							"key": "product-id",
+							"value": "2"
+						},
+						{
+							"key": "new-status",
+							"value": "DisplayOnly"
+						}
+					]
+				},
+				"description": "change product status (successfully)"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/change-product-delivery?seller=some@mail&product-id=2&new-delivery=Mail",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "5f291fc5-74d1-4926-826b-cfbfb240d898",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/change-product-delivery?seller=some@mail&product-id=2&new-delivery=Mail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-product-delivery"
+					],
+					"query": [
+						{
+							"key": "seller",
+							"value": "some@mail"
+						},
+						{
+							"key": "product-id",
+							"value": "2"
+						},
+						{
+							"key": "new-delivery",
+							"value": "Mail"
+						}
+					]
+				},
+				"description": "change delivery option (successfully)"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/update-product-name?seller=some@mail&product-id=2&new-name=Bilibili",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "eaef6710-12e2-41bd-821b-44c0c3189b75",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/update-product-name?seller=some@mail&product-id=2&new-name=Bilibili",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"update-product-name"
+					],
+					"query": [
+						{
+							"key": "seller",
+							"value": "some@mail"
+						},
+						{
+							"key": "product-id",
+							"value": "2"
+						},
+						{
+							"key": "new-name",
+							"value": "Bilibili"
+						}
+					]
+				},
+				"description": "chaneg name successfully"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/change-product-picture?seller=some@mail&product-id=2&new-url=appleCloud",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bca97286-0ccd-4718-8b9e-34c6a67f5140",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/change-product-picture?seller=some@mail&product-id=2&new-url=appleCloud",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-product-picture"
+					],
+					"query": [
+						{
+							"key": "seller",
+							"value": "some@mail"
+						},
+						{
+							"key": "product-id",
+							"value": "2"
+						},
+						{
+							"key": "new-url",
+							"value": "appleCloud"
+						}
+					]
+				},
+				"description": "change picture"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/product_data/2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/product_data/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"product_data",
+						"2"
+					]
+				},
+				"description": "check changes"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/products",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bdee9472-c594-4517-aad2-51bc2f2ee07d",
+						"exec": [
+							"pm.test(\"Status test\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"products"
+					]
+				},
+				"description": "controller get products"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

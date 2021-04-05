@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">artgallery-android</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+    <string name="email_hint">Email</string>
+    <string name="password_hint">Password</string>
+    <string name="login_button_customer">Login</string>
+
+    <string name="title_homepage"> Montreal Art Gallery </string>
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+
+    <!-- For Customer Profile -->
+    <string name="new_name_hint">New Name</string>
+    <string name="change_name">Change Name</string>
+    <string name="new_password_hint">New Password</string>
+    <string name="confirm_password_hint">Confirm Password</string>
+    <string name="change_password">Change Password</string>
+    <string name="logout">Logout</string>
+
+    <!-- For Make Order-->
+    <string name="address_hint">Enter your address</string>
+    <string name="productID_hint">Enter product id</string>
+    <string name="SearchProductByID_button">Check the product</string>
+
+    <string name="MakeOrder_label">Make an Order</string>
+    <string name="payment_label">Payment Info</string>
+    <string name="backCardNumber_hint">Bank Card Number</string>
+    <string name="CVVcode_hint">3 digits Card Verification Value</string>
+
+    <string name="deliveryMethod_label">Choose your delivery method</string>
+    <string name="mail">Mail</string>
+    <string name="pickup">PickUp</string>
+    <string name="placeOrder_button">Place Order</string>
+
+</resources>

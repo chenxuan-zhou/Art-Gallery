@@ -1,0 +1,357 @@
+{
+	"info": {
+		"_postman_id": "fedd2844-2489-482a-a8af-4b8d9d2769d9",
+		"name": "TestOrderController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Seller Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-seller?name=Leonardo Da Vinci&email=leonardo.davinci@italy.com&password=12332&profile=I Like To Draw",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-seller"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "Leonardo Da Vinci"
+						},
+						{
+							"key": "email",
+							"value": "leonardo.davinci@italy.com"
+						},
+						{
+							"key": "password",
+							"value": "12332"
+						},
+						{
+							"key": "profile",
+							"value": "I Like To Draw"
+						}
+					]
+				},
+				"description": "Need a seller to test order."
+			},
+			"response": []
+		},
+		{
+			"name": "Seller Login",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/login?email=leonardo.davinci@italy.com&password=12332",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "leonardo.davinci@italy.com"
+						},
+						{
+							"key": "password",
+							"value": "12332"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Seller uploads a product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-product?status=Selling&delivery=Both&name=Portrait of Isabella d'Este&seller=leonardo.davinci@italy.com&price=99998&picture=https://www.leonardodavinci.net/images/drawings/portrait-of-isabella-deste.jpg",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-product"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Selling"
+						},
+						{
+							"key": "delivery",
+							"value": "Both"
+						},
+						{
+							"key": "name",
+							"value": "Portrait of Isabella d'Este"
+						},
+						{
+							"key": "seller",
+							"value": "leonardo.davinci@italy.com"
+						},
+						{
+							"key": "price",
+							"value": "99998"
+						},
+						{
+							"key": "picture",
+							"value": "https://www.leonardodavinci.net/images/drawings/portrait-of-isabella-deste.jpg"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-customer?name=BokunZhao&email=Sam2565876330@outlook.com&password=5029374",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-customer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "BokunZhao"
+						},
+						{
+							"key": "email",
+							"value": "Sam2565876330@outlook.com"
+						},
+						{
+							"key": "password",
+							"value": "5029374"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Login",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer-login?customer=Sam2565876330@outlook.com&password=5029374",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer-login"
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "Sam2565876330@outlook.com"
+						},
+						{
+							"key": "password",
+							"value": "5029374"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Placing Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-order?dm=Mail&address=845 Sherbrooke St W, Montreal, Quebec H3A 0G4&ordered=2020-10-25&shipped=2020-10-28&price=99998&product=1&seller=leonardo.davinci@italy.com&customer=Sam2565876330@outlook.com",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-order"
+					],
+					"query": [
+						{
+							"key": "dm",
+							"value": "Mail"
+						},
+						{
+							"key": "address",
+							"value": "845 Sherbrooke St W, Montreal, Quebec H3A 0G4"
+						},
+						{
+							"key": "ordered",
+							"value": "2020-10-25"
+						},
+						{
+							"key": "shipped",
+							"value": "2020-10-28"
+						},
+						{
+							"key": "price",
+							"value": "99998"
+						},
+						{
+							"key": "product",
+							"value": "1"
+						},
+						{
+							"key": "seller",
+							"value": "leonardo.davinci@italy.com"
+						},
+						{
+							"key": "customer",
+							"value": "Sam2565876330@outlook.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Delivery method",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/change-delivery-method?id=2&new_dm=Pickup",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-delivery-method"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						},
+						{
+							"key": "new_dm",
+							"value": "Pickup"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Delivery Address",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/change-address?id=2&new_address=somewhere else",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-address"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						},
+						{
+							"key": "new_address",
+							"value": "somewhere else"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Change Order Status",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/change-order-status?id=2&new_status=Shipped",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-order-status"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						},
+						{
+							"key": "new_status",
+							"value": "Shipped"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/order?id=2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"order"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Orders",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/orders",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"orders"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

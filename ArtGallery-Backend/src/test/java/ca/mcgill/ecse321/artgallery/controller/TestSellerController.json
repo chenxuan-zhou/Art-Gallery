@@ -1,0 +1,461 @@
+{
+	"info": {
+		"_postman_id": "ace73da1-8aae-4868-8485-c9f46cd1e665",
+		"name": "TestSellerController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testCreateSeller",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "763b730a-3413-4f80-a3f1-8fb24d1e2471",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-seller?name=aName&email=aEmail&password=aPassword&profile=aProfile",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-seller"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aName"
+						},
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						},
+						{
+							"key": "profile",
+							"value": "aProfile"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testCreateSellerEmailExisted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "db947aab-0956-451c-94ce-84a7b8534e02",
+						"exec": [
+							"pm.test(\"Status code is 500\", () => {\r",
+							"  pm.expect(pm.response.code).to.eql(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-seller?name=aName2&email=aEmail&password=aPassword2&profile=aProfile2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-seller"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aName2"
+						},
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword2"
+						},
+						{
+							"key": "profile",
+							"value": "aProfile2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e74e3ffc-7660-4d20-8c86-e657010fc565",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/login?email=aEmail&password=aPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "createProduct",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "77436c50-b799-4652-a61a-5fb97e148ada",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-product?status=Selling&delivery=Both&name=aProductName&seller=aEmail&price=100&picture=aPicture",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-product"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Selling"
+						},
+						{
+							"key": "delivery",
+							"value": "Both"
+						},
+						{
+							"key": "name",
+							"value": "aProductName"
+						},
+						{
+							"key": "seller",
+							"value": "aEmail"
+						},
+						{
+							"key": "price",
+							"value": "100"
+						},
+						{
+							"key": "picture",
+							"value": "aPicture"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetAllSellers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "452f49da-9a3d-49f0-90f9-f53b8df1a03b",
+						"exec": [
+							"pm.test(\"Test correct sellers\", () => {\r",
+							"    const sellers = pm.response.json()\r",
+							"    pm.expect(Object.keys(sellers).length).to.eql(1);\r",
+							"    pm.expect(sellers[0].name).to.eql(\"aName\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sellers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sellers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetSellerAndLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "b0078d1f-fa8a-489d-a81d-789e4e5db601",
+						"exec": [
+							"pm.test(\"Test correct seller info\", () => {\r",
+							"    const seller = pm.response.json();\r",
+							"    pm.expect(seller.name).to.eql(\"aName\");\r",
+							"    pm.expect(seller.email).to.eql(\"aEmail\");\r",
+							"    pm.expect(seller.password).to.eql(\"aPassword\");\r",
+							"    pm.expect(seller.profile).to.eql(\"aProfile\");\r",
+							"    pm.expect(seller.income).to.eql(0);\r",
+							"    pm.expect(seller.accountStatus).to.eql(\"Active\");\r",
+							"    pm.expect(seller.products).to.not.eql(null);\r",
+							"    pm.expect(seller.orders).to.not.eql(null);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/seller?email=aEmail&password=aPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"seller"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetSellerNoPassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d678c7e4-70b7-4083-8727-417804b117d7",
+						"exec": [
+							"pm.test(\"Test correct seller info\", () => {\r",
+							"    const seller = pm.response.json();\r",
+							"    pm.expect(seller.name).to.eql(\"aName\");\r",
+							"    pm.expect(seller.email).to.eql(\"aEmail\");\r",
+							"    pm.expect(seller.password).to.eql(null);\r",
+							"    pm.expect(seller.profile).to.eql(\"aProfile\");\r",
+							"    pm.expect(seller.income).to.eql(-1);\r",
+							"    pm.expect(seller.accountStatus).to.eql(\"Active\");\r",
+							"    pm.expect(seller.products).to.not.eql(null);\r",
+							"    pm.expect(seller.orders).to.not.eql(null);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/seller?email=aEmail",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"seller"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetSellerProducts",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "38d5f019-e41e-454c-8930-ac37276c3a40",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.expect(pm.response.code).to.eql(200);\r",
+							"});\r",
+							"pm.test(\"Test correct products\", () => {\r",
+							"    let jsonData = pm.response.json();\r",
+							"    pm.expect(jsonData).to.be.an(\"array\");\r",
+							"    pm.expect(jsonData[0].seller).to.eql(\"aEmail\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/seller-products?email=aEmail&password=aPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"seller-products"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "logout",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/logout?email=aEmail",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"logout"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testLogout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "91d72ef0-5d21-46f4-b9f3-dc7d6b9a5b47",
+						"exec": [
+							"pm.test(\"Test correct seller info\", () => {\r",
+							"    const seller = pm.response.json();\r",
+							"    pm.expect(seller.name).to.eql(\"aName\");\r",
+							"    pm.expect(seller.email).to.eql(\"aEmail\");\r",
+							"    pm.expect(seller.password).to.eql(\"aPassword\");\r",
+							"    pm.expect(seller.profile).to.eql(\"aProfile\");\r",
+							"    pm.expect(seller.income).to.eql(0);\r",
+							"    pm.expect(seller.accountStatus).to.eql(\"Inactive\");\r",
+							"    pm.expect(seller.products).to.not.eql(null);\r",
+							"    pm.expect(seller.orders).to.not.eql(null);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/seller?email=aEmail&password=aPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"seller"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

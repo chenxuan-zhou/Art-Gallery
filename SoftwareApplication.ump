@@ -1,0 +1,118 @@
+namespace ca.mcgill.ecse321.artgallery.model;
+
+
+class Account
+{
+  abstract;
+  enum AccountStatus{ New, Blocked,Active}
+  AccountStatus status;
+   String name;
+  String password;
+  unique String email;
+
+  
+}
+
+class Manager{
+   isA Account;
+ 1<@>-* Promotion promotion;
+  
+
+}
+class Customer
+{
+  isA Account;
+  double balance;
+  1 <@>- * Order order;
+ 
+}
+class Seller{
+ String profile;
+  double income;
+isA Account; 		
+  1 <@>- * Product products;
+  
+}
+class Order{
+  enum OrderStatus { New,Hold,Shipped,Delivered,Closed}
+  enum DeliveryMethod{
+    Mail, Pickup}
+  DeliveryMethod deliveryMethod;
+  OrderStatus orderStatus;
+  unique String id;
+  String address;
+  Date ordered;
+  Date shipped;
+  int price;
+  1--0..*  Product product;
+  0..*-- 1 Seller seller;
+
+}
+
+
+class Product{
+  enum ProductStatus{Selling,Sold, RestockSoon,DisplayOnly}
+  ProductStatus productStatus;
+  int price;
+  String name;
+  unique String id;
+
+<<<<<<< HEAD
+=======
+}
+
+
+class Promotion{
+  unique String id;
+  Date startDate;
+  Date endDate;
+  0..1--0..*  Product product;
+
+}
+
+
+namespace -;
+
+class Manager
+{
+  position 200 195 103 41;
+  position.association Manager__Product:product 88,41 7,0;
+  position.association Manager__Seller:sellerAccount 0,10 127,2;
+}
+
+class Promotion
+{
+  position 186 294 129 75;
+  position.association Product:product__Promotion 66,75 175,0;
+}
+
+
+class Account
+{
+  position 182 57 172 109;
+}
+
+class Customer
+{
+  position 361 183 131 58;
+  position.association Customer__Order:order 44,58 62,0;
+}
+
+class Seller
+{
+  position 23 192 127 75;
+  position.association Product:products__Seller 74,75 9,0;
+}
+
+class Order
+{
+  position 480 294 241 160;
+  position.association Order__Product:product 0,5 56,0;
+  position.association Order__Seller:seller 61,0 5,75;
+}
+
+class Product
+{
+  position 137 405 222 109;
+}//$?[End_of_model]$?
+>>>>>>> master

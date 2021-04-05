@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "bbec15c6-37f1-49d6-8b47-af9bdb9dad3b",
+		"name": "TestCustomerController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "testCreateCustomer",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "d475c468-e23f-4a3b-b218-c18a28470194",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-customer?name=aName&email=aEmail&password=aPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-customer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aName"
+						},
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testCreateCustomerEmailExisted",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "7636a912-61c1-451c-9bc3-a1dc205b7701",
+						"exec": [
+							"pm.test(\"Status code is 500\", () => {\r",
+							"  pm.expect(pm.response.code).to.eql(500);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/create-customer?name=aName2&email=aEmail&password=aPassword2",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-customer"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "aName2"
+						},
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "6846cbfe-f85e-44dd-8c5e-199cd5d34d52",
+						"exec": [
+							"pm.test(\"Status code is 200\", () => {\r",
+							"  pm.expect(pm.response.code).to.eql(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer-login?customer=aEmail&password=aPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer-login"
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetAllCustomers",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "831eca56-f13e-483e-a9ab-8fe3b944a3b3",
+						"exec": [
+							"pm.test(\"Test correct sellers\", () => {\r",
+							"    const customers = pm.response.json()\r",
+							"    pm.expect(Object.keys(customers).length).to.eql(1);\r",
+							"    pm.expect(customers[0].name).to.eql(\"aName\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customers",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetCustomerAndLogin",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "39e319b2-e0cd-4be4-9142-790b1333c661",
+						"exec": [
+							"pm.test(\"Test correct seller info\", () => {\r",
+							"    const customer = pm.response.json();\r",
+							"    pm.expect(customer.name).to.eql(\"aName\");\r",
+							"    pm.expect(customer.email).to.eql(\"aEmail\");\r",
+							"    pm.expect(customer.password).to.eql(\"aPassword\");\r",
+							"    pm.expect(customer.balance).to.eql(0);\r",
+							"    pm.expect(customer.accountStatus).to.eql(\"Active\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer?email=aEmail&password=aPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testGetCustomerNoPassword",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ab673625-029d-4154-9f8f-d03dc5530775",
+						"exec": [
+							"pm.test(\"Test correct seller info\", () => {\r",
+							"    const customer = pm.response.json();\r",
+							"    pm.expect(customer.name).to.eql(\"aName\");\r",
+							"    pm.expect(customer.email).to.eql(\"aEmail\");\r",
+							"    pm.expect(customer.password).to.eql(null);\r",
+							"    pm.expect(customer.balance).to.eql(-1);\r",
+							"    pm.expect(customer.accountStatus).to.eql(\"Active\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer?email=aEmail",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changeCustomerPassword",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/change-customer-password?customer=aEmail&newPassword=aNewPassword&confirmPassword=aNewPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-customer-password"
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "aEmail"
+						},
+						{
+							"key": "newPassword",
+							"value": "aNewPassword"
+						},
+						{
+							"key": "confirmPassword",
+							"value": "aNewPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "changeCustomerBalance",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/change-customer-balance?customer=aEmail&deltaIncome=-10",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"change-customer-balance"
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "aEmail"
+						},
+						{
+							"key": "deltaIncome",
+							"value": "-10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testCustomerPutMethods",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "50cd745b-2891-4ce5-af23-b8eb90a8b829",
+						"exec": [
+							"pm.test(\"Test correct seller info\", () => {\r",
+							"    const customer = pm.response.json();\r",
+							"    pm.expect(customer.password).to.eql(\"aNewPassword\");\r",
+							"    pm.expect(customer.balance).to.eql(-10);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer?email=aEmail&password=aNewPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aNewPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "customerLogout",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer-logout?customer=aEmail",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer-logout"
+					],
+					"query": [
+						{
+							"key": "customer",
+							"value": "aEmail"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "testCustomerLogout",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4d7764f3-1419-4bd5-8824-1ce857232c01",
+						"exec": [
+							"pm.test(\"Test correct seller info\", () => {\r",
+							"    const customer = pm.response.json();\r",
+							"    pm.expect(customer.accountStatus).to.eql(\"Inactive\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/customer?email=aEmail&password=aPassword",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "aEmail"
+						},
+						{
+							"key": "password",
+							"value": "aPassword"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

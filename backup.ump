@@ -1,0 +1,57 @@
+class ArtGallery
+{
+  1 <@>-* Account accounts;
+  1 <@>- * Exhibit exhibits;
+}
+
+class Exhibit {
+  String id;
+  
+  1 -- 1 Product product;
+}
+
+class Account
+{
+    unique String email;
+  
+  enum AccountStatus{ New, Blocked,Active}
+  enum AccountType{Customer, Seller, Admin}
+  AccountStatus status;
+  AccountType type;
+  unique String name;
+  String password;
+  Double balance;
+  
+  1 orderedBy<@>- * Order;
+  1 soldBy -- 1 Order;
+  1 postedBy <@>- * Product ; 
+  
+}
+
+class Order{
+  unique String id;
+  
+  enum OrderStatus { New,Hold,Shipped,Delivered,Closed}
+  enum PaymentStatus{ successful, failed, pending}
+  DeliveryMethod deliveryMethod;
+  OrderStatus orderStatus;
+  String address;
+  Date ordered;
+  int totalPrice;
+  
+  1 -- 1 Product orderContent;
+  
+}
+
+
+class Product{
+  unique String id;
+  
+  enum ProductStatus{Selling,Sold, RestockSoon}
+  ProductStatus productStatus;
+  int price;
+  String name;
+  
+}
+
+

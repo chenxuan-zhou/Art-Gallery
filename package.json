@@ -1,0 +1,6 @@
+
+{
+    "scripts": {
+      "postinstall": "cd ArtGallery-Frontend && npm install && npm install --save semver"
+    }
+  }

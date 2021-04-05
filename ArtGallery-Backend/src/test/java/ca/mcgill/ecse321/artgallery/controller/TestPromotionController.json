@@ -1,0 +1,452 @@
+{
+	"info": {
+		"_postman_id": "09354f2a-1d83-45d1-946c-7f08375284ab",
+		"name": "TestPromotionController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/create-seller?name=someone2&email=some2@mail&password=123&profile=GOAT",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/create-seller?name=someone2&email=some2@mail&password=123&profile=GOAT",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-seller"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "someone2"
+						},
+						{
+							"key": "email",
+							"value": "some2@mail"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						},
+						{
+							"key": "profile",
+							"value": "GOAT"
+						}
+					]
+				},
+				"description": "Create Seller"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/login?email=some2@mail&password=123",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/login?email=some2@mail&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "some2@mail"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						}
+					]
+				},
+				"description": "Log into seller account"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing&seller=some2@mail&price=100&picture=\"\"",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing&seller=some2@mail&price=100&picture=\"\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-product"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Selling"
+						},
+						{
+							"key": "delivery",
+							"value": "Both"
+						},
+						{
+							"key": "name",
+							"value": "drawing"
+						},
+						{
+							"key": "seller",
+							"value": "some2@mail"
+						},
+						{
+							"key": "price",
+							"value": "100"
+						},
+						{
+							"key": "picture",
+							"value": "\"\""
+						}
+					]
+				},
+				"description": "Craete Product"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing2&seller=some2@mail&price=100&picture=\"\"",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing2&seller=some2@mail&price=100&picture=\"\"",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-product"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Selling"
+						},
+						{
+							"key": "delivery",
+							"value": "Both"
+						},
+						{
+							"key": "name",
+							"value": "drawing2"
+						},
+						{
+							"key": "seller",
+							"value": "some2@mail"
+						},
+						{
+							"key": "price",
+							"value": "100"
+						},
+						{
+							"key": "picture",
+							"value": "\"\""
+						}
+					]
+				},
+				"description": "Create Product2"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/seller-products?email=some2@mail&password=123",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/seller-products?email=some2@mail&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"seller-products"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "some2@mail"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						}
+					]
+				},
+				"description": "Ge Seller 1 Successful"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create-manager?email=1234567@mail&name=aManager&password=123",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/create-manager?email=1234567@mail&name=aManager&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-manager"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "1234567@mail"
+						},
+						{
+							"key": "name",
+							"value": "aManager"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						}
+					]
+				},
+				"description": "Create Manager"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/manager-login?email=1234567@mail&password=123",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/manager-login?email=1234567@mail&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"manager-login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "1234567@mail"
+						},
+						{
+							"key": "password",
+							"value": "123"
+						}
+					]
+				},
+				"description": "Log into Manager Account"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/promotion/create?manager=1234567@mail&id=1&start=2020-09-01&end=2020-10-01&product=1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/promotion/create?manager=1234567@mail&id=1&start=2020-09-01&end=2020-10-01&product=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"promotion",
+						"create"
+					],
+					"query": [
+						{
+							"key": "manager",
+							"value": "1234567@mail"
+						},
+						{
+							"key": "id",
+							"value": "1"
+						},
+						{
+							"key": "start",
+							"value": "2020-09-01"
+						},
+						{
+							"key": "end",
+							"value": "2020-10-01"
+						},
+						{
+							"key": "product",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Create Promotion"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/promotion/create?manager=1234567@mail&id=2&start=2020-09-01&end=2020-11-01&product=2",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/promotion/create?manager=1234567@mail&id=2&start=2020-09-01&end=2020-11-01&product=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"promotion",
+						"create"
+					],
+					"query": [
+						{
+							"key": "manager",
+							"value": "1234567@mail"
+						},
+						{
+							"key": "id",
+							"value": "2"
+						},
+						{
+							"key": "start",
+							"value": "2020-09-01"
+						},
+						{
+							"key": "end",
+							"value": "2020-11-01"
+						},
+						{
+							"key": "product",
+							"value": "2"
+						}
+					]
+				},
+				"description": "Create second promotion with another product same manager"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/promotion/end_date?date=2020-10-01",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/promotion/end_date?date=2020-10-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"promotion",
+						"end_date"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-10-01"
+						}
+					]
+				},
+				"description": "Get by endDate"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/promotion/start_date?date=2020-09-01",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/promotion/start_date?date=2020-09-01",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"promotion",
+						"start_date"
+					],
+					"query": [
+						{
+							"key": "date",
+							"value": "2020-09-01"
+						}
+					]
+				},
+				"description": "Get By Start Date"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/promotions/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/promotions/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"promotions",
+						""
+					]
+				},
+				"description": "Get All promotions"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/promotion/id?id=1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/promotion/id?id=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"promotion",
+						"id"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "1"
+						}
+					]
+				},
+				"description": "Search Product By id"
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

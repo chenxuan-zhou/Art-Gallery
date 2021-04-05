@@ -1,0 +1,119 @@
+namespace ca.mcgill.ecse321.artgallery.model;
+
+
+class Account
+{
+  abstract;
+  enum AccountStatus{ New,Active, Blocked }
+  AccountStatus status;
+   String name;
+  String password;
+  unique String email;
+
+  
+}
+
+class Manager{
+   isA Account;
+ 1 manager <@>-* Promotion promotions;
+  
+
+}
+class Customer
+{
+  isA Account;
+  double balance;
+  1 customer <@>- * Order orders;
+ 
+}
+class Seller{
+ String profile;
+  double income;
+isA Account; 		
+  1 seller<@>- * Product products;
+  
+}
+class Order{
+  enum OrderStatus { New,Hold,Shipped,Delivered,Closed}
+  enum DeliveryMethod{ Mail, Pickup }
+  DeliveryMethod deliveryMethod;
+  OrderStatus orderStatus;
+  unique Long id;
+  String address;
+  Date ordered;
+  Date shipped;
+  int price;
+  0..1 order --1 Product product;
+  0..* orders -- 1 Seller seller;
+
+}
+
+
+class Product{
+  unique Long id;
+  enum ProductStatus{ Selling, Sold, RestockSoon, DisplayOnly }
+  ProductStatus productStatus;
+  enum SupportedDelivery { Mail, Pickup, Both }
+  SupportedDelivery supportedDelivery;
+  int price;
+  String name;
+}
+
+
+class Promotion{
+  unique Long id;
+  Date startDate;
+  Date endDate;
+  0..1 promotion --0..*  Product products;
+
+}
+
+class Manager
+{
+  position 287 173 103 39;
+  position.association Manager__Product:product 88,41 7,0;
+  position.association Manager__Seller:sellerAccount 0,10 127,2;
+  position.association Manager__Promotion:promotion 46,39 41,0;
+  position.association Manager:manager__Promotion:promotions 58,41 30,0;
+}
+
+class Promotion
+{
+  position 351 316 129 90;
+  position.association Product:product__Promotion 0,55 223,53;
+  position.association Product:products__Promotion:promotion 0,10 268,16;
+}
+
+
+class Account
+{
+  position 252 0 172 122;
+}
+
+class Customer
+{
+  position 611 138 131 56;
+  position.association Customer__Order:order 44,56 158,0;
+  position.association Customer:customer__Order:orders 28,58 137,0;
+}
+
+class Seller
+{
+  position 1 123 127 73;
+  position.association Product:products__Seller 28,73 75,0;
+  position.association Product:products__Seller:seller 30,75 30,0;
+}
+
+class Order
+{
+  position 503 312 241 158;
+  position.association Order__Product:product 0,5 208,0;
+  position.association Order__Seller:seller 61,0 121,73;
+  position.association Order:orders__Seller:seller 75,0 121,73;
+  position.association Order:order__Product:product 0,122 268,74;
+}
+
+class Product
+{
+  position 1 349 267 124;
+}//$?[End_of_model]$?

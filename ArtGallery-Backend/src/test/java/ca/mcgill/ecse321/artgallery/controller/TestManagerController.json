@@ -1,0 +1,465 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TestManagerController",
+		"_postman_id": "88971af4-e80f-d2b5-d0e8-e3b2128d775c",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8080/create-manager?email=test@mail&name=testManager&password=123",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/create-manager?email=test@mail&name=testManager&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-manager"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "name",
+							"value": "testManager",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "Create a manager"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/managers",
+			"request": {
+				"url": "http://localhost:8080/managers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Get a list of all managers"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/find-manager?email=test@mail",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/find-manager?email=test@mail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"find-manager"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@mail",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Find a manager by email"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/manager-login?email=test@mail&password=123",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/manager-login?email=test@mail&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"manager-login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "Login a manager"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/manager-changePassword?email=test@mail&password=123&newPassword=123",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/manager-changePassword?email=test@mail&password=123&newPassword=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"manager-changePassword"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "newPassword",
+							"value": "123",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "Change a manager password"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/manager-changeName?email=test@mail&newName=testManagerB",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/manager-changeName?email=test@mail&newName=testManagerB",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"manager-changeName"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "newName",
+							"value": "testManagerB",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "Change a manager name"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create-seller?name=someone&email=some@mail&password=123&profile=GOAT",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/create-seller?name=someone&email=some@mail&password=123&profile=GOAT",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-seller"
+					],
+					"query": [
+						{
+							"key": "name",
+							"value": "someone",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "email",
+							"value": "some@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "profile",
+							"value": "GOAT",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "Prerequisite: create a seller"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/login?email=some@mail&password=123",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/login?email=some@mail&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"login"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "some@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "Prerequisite: login the seller"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing&seller=some@mail&price=100&picture=",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/create-product?status=Selling&delivery=Both&name=drawing&seller=some@mail&price=100&picture=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"create-product"
+					],
+					"query": [
+						{
+							"key": "status",
+							"value": "Selling",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "delivery",
+							"value": "Both",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "name",
+							"value": "drawing",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "seller",
+							"value": "some@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "price",
+							"value": "100",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "picture",
+							"value": "",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "Prerequisite: create a product"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/suspend-product?managerEmail=test@mail&productID=1",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/suspend-product?managerEmail=test@mail&productID=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"suspend-product"
+					],
+					"query": [
+						{
+							"key": "managerEmail",
+							"value": "test@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "productID",
+							"value": "1",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "Suspend a product"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/manager-logout?email=test@mail",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/manager-logout?email=test@mail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"manager-logout"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@mail",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": "Logout a manager"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/delete-manager?email=test@mail&password=123",
+			"request": {
+				"url": {
+					"raw": "http://localhost:8080/delete-manager?email=test@mail&password=123",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"delete-manager"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "test@mail",
+							"equals": true,
+							"description": ""
+						},
+						{
+							"key": "password",
+							"value": "123",
+							"equals": true,
+							"description": ""
+						}
+					],
+					"variable": []
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": "Delete the manager"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8080/managers",
+			"request": {
+				"url": "http://localhost:8080/managers",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": "Check if the manager still exists. Deleted = pass."
+			},
+			"response": []
+		}
+	]
+}
